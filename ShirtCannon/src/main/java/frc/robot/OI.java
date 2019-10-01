@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.UniversalJoystick;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -16,6 +17,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI
 {
+
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -47,11 +49,18 @@ public class OI
   public UniversalJoystick joystickDrive = new UniversalJoystick(0);
   public UniversalJoystick joystickAccessory = new UniversalJoystick(1);
 
-  public Button nullButton;
+  public Button barrelFillButton;
+  public Button barrelStopButton;
+  public Button valveOpenButton;
+  public Button valveCloseButton;
 
   public OI()
   {
-    nullButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
+    barrelFillButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnX);
+    barrelStopButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnY);
+    valveOpenButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnA);
+    valveCloseButton = new JoystickButton(joystickDrive, UniversalJoystick.kBtnB);
+
   }
 
   public double getRightSpeed()
