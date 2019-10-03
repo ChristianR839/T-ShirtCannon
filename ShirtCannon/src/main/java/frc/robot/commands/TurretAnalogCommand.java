@@ -3,29 +3,29 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class BarrelStopCommand extends Command
+public class TurretAnalogCommand extends Command
 {
-  public BarrelStopCommand()
+  public TurretAnalogCommand()
   {
-    requires(Robot.pneumatics);
+    requires(Robot.turret);
   }
 
   @Override
   protected void initialize()
   {
-    Robot.pneumatics.barrelStop();
+
   }
 
   @Override
   protected void execute()
   {
-
+    Robot.turret.moveTurretAnalog(Robot.oi.getTurretAnalogSpeed());
   }
 
   @Override
   protected boolean isFinished()
   {
-    return false;
+    return this.isTimedOut();
   }
 
   @Override
@@ -37,6 +37,6 @@ public class BarrelStopCommand extends Command
   @Override
   protected void interrupted()
   {
-
+    Robot.turret.stop();
   }
 }
